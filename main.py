@@ -17,7 +17,7 @@ def generate_summary(api_key, text, output_language, engine="davinci-codex", max
 
     summary = response.choices[0].text.strip()
 
-    # Translate the summary if the output language is not English
+    # translate if output is not en
     if output_language != "en":
         prompt = f"Translate the following English text to {output_language}:\n\n{summary}\n\nTranslation:"
         response = openai.Completion.create(
@@ -33,7 +33,7 @@ def generate_summary(api_key, text, output_language, engine="davinci-codex", max
 
     return summary
 
-# The rest of the code remains the same
+
 
     return summary
 
@@ -50,34 +50,28 @@ def generate_summary_button_click():
 
 api_key = "your api key"
 
-# Create the main window
 root = tk.Tk()
 root.title("Index Card Summary Generator")
 
-# Create the input text box
 input_label = tk.Label(root, text="Enter the text to summarize:")
 input_label.pack()
 input_text_box = tk.Text(root, wrap=tk.WORD, width=60, height=10)
 input_text_box.pack()
 
-# Create the language selection dropdown
 language_var = tk.StringVar(root)
-language_var.set("en")  # Set the default language to English
+language_var.set("en")  # set the default language to English
 language_label = tk.Label(root, text="Select output language:")
 language_label.pack()
 language_options = ["en", "fr", "es", "de", "it", "nl", "ru", "zh"]
 language_dropdown = ttk.Combobox(root, textvariable=language_var, values=language_options)
 language_dropdown.pack()
 
-# Create the "Generate Summary" button
 generate_summary_button = tk.Button(root, text="Generate Summary", command=generate_summary_button_click)
 generate_summary_button.pack()
 
-# Create the summary text box
 summary_label = tk.Label(root, text="Index Card Summary:")
 summary_label.pack()
 summary_text_box = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=60, height=10)
 summary_text_box.pack()
 
-# Run the main event loop
 root.mainloop()
