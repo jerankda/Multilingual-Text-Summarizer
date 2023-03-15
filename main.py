@@ -48,7 +48,7 @@ def generate_summary_button_click():
     summary_text_box.delete("1.0", tk.END)
     summary_text_box.insert(tk.END, summary)
 
-api_key = "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"
+api_key = "your api key"
 
 # Create the main window
 root = tk.Tk()
