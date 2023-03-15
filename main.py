@@ -33,10 +33,6 @@ def generate_summary(api_key, text, output_language, engine="davinci-codex", max
 
     return summary
 
-
-
-    return summary
-
 def generate_summary_button_click():
     input_text = input_text_box.get("1.0", tk.END).strip()
     if not input_text:
